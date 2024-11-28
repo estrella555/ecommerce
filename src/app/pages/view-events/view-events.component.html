@@ -1,0 +1,19 @@
+<h1>Informacion del evnto</h1>
+<p><strong>Titulo:</strong> {{data?.title}}</p>
+<p><strong>Descripcion:</strong> {{data?.description}}</p>
+<p><strong>Precio</strong> {{data?.price}}</p><p><strong>Titulo:</strong> {{data?.title}}</p>
+<p><strong>Adress:</strong> {{data?.adress}}</p>
+<p><strong>City</strong> {{data?.city}}</p>
+<p><strong>Country:</strong> {{data?.country}}</p>
+<p><strong>stockTickets:</strong> {{data?.stockTickets}}</p>
+<p><strong>date:</strong> {{data?.date}}</p>
+
+
+
+<p><strong>UID</strong> {{data?.id}}</p>
+
+
+<app-card [data]="post" *ngFor="let post of postsFiltrados"></app-card>
+
+
+
