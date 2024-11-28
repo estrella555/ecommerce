@@ -1,30 +1,30 @@
 import { Component, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { FormsModule } from '@angular/forms'; 
 import { DatabaseService } from '../../services/database.service';
 import { NgFor } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router'; 
 
 @Component({
-    selector: 'app-search',
-    imports: [FormsModule, NgFor],
-    templateUrl: './search.component.html',
-    styleUrl: './search.component.scss'
+  selector: 'app-search',
+  imports: [FormsModule, NgFor],
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
 
   search: any;
-  alldata: any; /// aqui vamos a alojar los datos que se muestran en pantalla
-  filtered: any;
-
+  alldata: any; 
+  filtered: any; 
 
   constructor(
     public auth: AuthService,
     public db: DatabaseService,
+    private router: Router, 
   ) {
 
     let verificar = auth.verifyIsLogued();
     console.log(verificar);
-    console.log(this.search)
     this.loadData();
   }
 
@@ -36,7 +36,7 @@ export class SearchComponent {
           this.alldata = res;
         },
         (error: any) => { console.log('Error: ', error) },
-      )
+      );
   }
 
   searchDocument() {
@@ -57,5 +57,10 @@ export class SearchComponent {
         this.filtered.push(i);
       }
     });
+  }
+
+  
+  viewEventDetail(eventId: string) {
+    this.router.navigate([`/view-events/${eventId}`]);
   }
 }

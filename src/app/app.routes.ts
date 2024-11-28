@@ -10,7 +10,6 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
 import { ViewProfileComponent } from './pages/view-profile/view-profile.component';
 import { ViewEventsComponent } from './pages/view-events/view-events.component';
 
-
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
@@ -22,7 +21,5 @@ export const routes: Routes = [
   { path: 'new-post', component: NewPostComponent },
   { path: 'view-post/:id', component: NewPostComponent },
   { path: 'view-profile/:id', component: ViewProfileComponent },
-  { path: 'view-events/:id', component: ViewEventsComponent }
-
-
+  { path: 'view-events/:id', component: ViewEventsComponent },
 ];
