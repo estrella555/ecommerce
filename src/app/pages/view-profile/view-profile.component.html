@@ -1,8 +1,20 @@
-<h1>Perfil de usuario</h1>
-<p><strong>Nombre:</strong> {{data?.name}}</p>
-<p><strong>Email:</strong> {{data?.email}}</p>
-<p><strong>Phone</strong> {{data?.phone}}</p>
-<p><strong>UID</strong> {{data?.id}}</p>
+<div class="profile">
+  
+  <img *ngIf="data?.photoURL; else defaultPhoto" [src]="data.photoURL" alt="Foto de perfil" class="profile-photo" />
+
+  
+  <ng-template #defaultPhoto>
+    <img [src]="defaultPhotoURL" alt="Foto por defecto" class="profile-photo" />
+  </ng-template>
 
 
-<app-card [data]="post" *ngFor="let post of postsFiltrados"></app-card>
+  <p><strong>Nombre:</strong> {{ data?.name }}</p>
+  <p><strong>Email:</strong> {{ data?.email }}</p>
+  <p><strong>Phone:</strong> {{ data?.phone }}</p>
+</div>
+<div>
+  <label for="upload-photo" class="upload-button">
+    Cambiar Foto
+  </label>
+  <input type="file" id="upload-photo" (change)="onFileSelected($event)" hidden />
+</div>

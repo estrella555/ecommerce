@@ -8,9 +8,9 @@ import { FeedComponent } from './pages/feed/feed.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
 import { ViewProfileComponent } from './pages/view-profile/view-profile.component';
-import { ViewEventsComponent } from './pages/view-events/view-events.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta predeterminada
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'home', component: HomeComponent },
@@ -21,5 +21,6 @@ export const routes: Routes = [
   { path: 'new-post', component: NewPostComponent },
   { path: 'view-post/:id', component: NewPostComponent },
   { path: 'view-profile/:id', component: ViewProfileComponent },
-  { path: 'view-events/:id', component: ViewEventsComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }, // Manejo de rutas no encontradas
 ];
+

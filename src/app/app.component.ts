@@ -18,6 +18,7 @@ export class AppComponent {
 
   constructor(
     public auth: AuthService
+    
   ){
     console.log('constructor app component');
   }
